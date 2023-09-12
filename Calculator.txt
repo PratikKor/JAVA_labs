@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class my {
+
+	public static void main(String args[])
+	{
+		calci obj1= new calci();
+		
+		int c=obj1.read();
+		
+		if(c>4 || c<0){
+			System.out.println("INVALID CHOICE: ");
+		}
+	
+		if (c==1) {
+			obj1.add();
+		}
+		
+		if (c==2) {
+			obj1.sub();
+		}
+		
+		if (c==3) {
+			obj1.div();
+		}
+		
+		if (c==4) {
+			obj1.mul();
+		}
+
+	}
+}
+
+
+class calci{
+	double v1,v2,res;
+	int c;
+	
+	int read(){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter val 1: ");
+		v1=sc.nextDouble();
+		System.out.println("Enter val 2: ");
+		v2= sc.nextDouble();
+		System.out.println("Press 1 for add: \nPress 2 for sub: \nPress 3 for div: \nPress 4 for mul: \n");
+		c=sc.nextInt();
+		sc.close();
+		return c;
+	}
+	
+	void add() {
+		res=v1+v2;
+		System.out.println("Addition is: "+res);
+	}
+	
+	void sub() {
+		res=v1-v2;
+		System.out.println("Subtraction is: "+res);
+	}
+	
+	void div() {
+		res=v1/v2;
+		System.out.println("Division is: "+res);
+	}
+	
+	void mul() {
+		res=v1*v2;
+		System.out.println("Multiplication is: "+res);
+	}
+}
