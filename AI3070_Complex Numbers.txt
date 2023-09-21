@@ -1,0 +1,123 @@
+package Complex;
+import java.util.Scanner;
+
+
+public class cmp {
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+	
+		compl ob1=new compl();
+		ob1.read();	
+		compl ob2=new compl();
+		ob2.read();
+
+		
+		System.out.println("Enter choice \n1 for addition: \n2 for subtraction: \n3for conjugate of no 1 : \n"
+				+ "4for conjugate of no 2 : \n5 for multiplication : \n6 for division :");
+		int choice = sc.nextInt();
+		
+		
+		if (choice==1) {
+			compl ob3=ob1.add(ob2);
+			System.out.println("\nAddition of 2 numbers is : ");
+			ob3.display();
+		 }
+		 
+		if (choice==2) {
+			compl ob3= ob1.sub(ob2);
+			System.out.println("\nSubtraction of 2 numbers is : ");
+			ob3.display();
+		 }
+		 
+		if (choice==3) {
+			compl ob3= ob1.conj();
+			 System.out.println("\nConjugate of number is : ");
+			 ob3.display();
+		}
+		 
+		if (choice==4) {
+			compl ob3= ob2.conj();
+			 System.out.println("\nConjugate of number is : ");
+			 ob3.display();
+		}
+		 
+		if (choice==5) {
+			 compl ob3= ob1.mul(ob2);
+			 System.out.println("\nMultiplication of 2 numbers is : ");
+			 ob3.display();
+		}
+ 
+		if (choice==6) {	 
+			compl ob3=ob1.div(ob2);
+			System.out.println("\nDivision of 2 numbers is : ");
+			ob3.display();
+		 }
+	}
+}
+
+
+class compl{
+	
+	float real,img;
+	Scanner sc=new Scanner(System.in);
+	
+	void read() {
+		System.out.println("Enter real: ");
+		real=sc.nextFloat();
+		System.out.println("Enter img: ");
+		img=sc.nextFloat();
+	}
+	
+	void display() {
+		if(img>=0) {
+			System.out.println(real+"+i"+img);
+		}
+		else {System.out.println(real+"-i"+(-1*img));
+		}
+	}
+	
+	compl add(compl ob2) {
+		compl tr =new compl();
+		
+		tr.real =real+ob2.real;
+		tr.img =img+ob2.img;
+		return tr;
+	}
+	
+	compl sub(compl ob2) {
+		compl tr =new compl();
+		
+		tr.real =real-ob2.real;
+		tr.img =img-ob2.img;
+		return tr;
+	}
+	
+	compl mul(compl ob2) {
+		compl tr =new compl();
+		
+		tr.real =(real*ob2.real)-(img*ob2.img);
+		tr.img =(real*ob2.img)+(img*ob2.real);
+		return tr;
+	}
+	
+	compl conj() {
+		compl tr =new compl();
+		tr.real = real;
+		tr.img = -1*img;
+		return tr;
+	}
+	
+	compl div(compl ob2) {
+	    compl t = new compl();
+	    compl c = new compl();
+	    float din;
+
+	    din = (float) (Math.pow(ob2.real, 2) + Math.pow(ob2.img, 2));
+	    compl ob2_conj = ob2.conj();
+	    c = this.mul(ob2_conj);
+	    t.real = c.real / din;
+	    t.img = c.img / din;
+	    return t;
+	}
+	
+}
