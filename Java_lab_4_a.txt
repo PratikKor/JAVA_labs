@@ -1,0 +1,24 @@
+package Java_Lab_4;
+
+
+//polymorphism with method overloading 
+public class Java_lab_4 {
+		
+	void sum(int x,int y) {
+		System.out.println("Integer Sum: ");
+		System.out.println(x+y);
+	}
+	
+	void sum(double x,double y) {
+		System.out.println("Floating point Sum: ");
+		System.out.println(x+y);
+	}
+	
+	public static void main(String args[]) {
+		int a=0,b=20;
+		double p=11.11,q=22.22;
+		Java_lab_4 obj = new Java_lab_4();
+		obj.sum(a, b);
+		obj.sum(p, q);	
+	}
+}
