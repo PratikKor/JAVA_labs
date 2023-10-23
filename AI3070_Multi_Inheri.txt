@@ -1,0 +1,37 @@
+package prac9;
+
+public class multiinheri {
+	public static void main(String[] args) { 
+		AmphibiousVehicle vehicle = new AmphibiousVehicle(); 
+		vehicle.drive(); 
+		vehicle.honk(); 
+		vehicle.sail(); 
+		vehicle.anchor(); 
+	} 
+}
+
+interface LandVehicle { 
+	void drive(); 
+} 
+
+interface WaterVehicle { 
+	void sail(); 
+} 
+
+class Car implements LandVehicle { 
+	@Override public void drive() { 
+		System.out.println("A car drives on land."); 
+	} 
+	void honk() { 
+		System.out.println("Car horn honking!"); 
+	} 
+}
+
+class AmphibiousVehicle extends Car implements WaterVehicle { 
+	@Override public void sail() { 
+		System.out.println("An amphibious vehicle sails on water."); 
+	} 
+	void anchor() { 
+		System.out.println("Amphibious vehicle dropping anchor!"); 
+	} 
+}
