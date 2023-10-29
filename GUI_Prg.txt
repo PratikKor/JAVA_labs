@@ -1,0 +1,33 @@
+package guii;
+import java.awt.*;
+
+public class MyWindow {
+	public static void main(String args[]) {
+		Frame frame = new Frame();
+		frame.setSize(500,500);
+		frame.setTitle("MY Window ");
+		frame.setBackground(Color.CYAN);
+		frame.setLocationByPlatform(true);
+		
+		Panel panel = new Panel();
+		panel.setLayout(new GridLayout(3,1));
+		
+		Label label = new Label();
+		label.setAlignment(Label.CENTER);
+		
+		TextField textfield = new TextField();
+		textfield.setText("Write what you want....!");
+		
+		
+		Button button = new Button();
+		button.setBackground(Color.CYAN);
+		button.setLabel("Press me!");
+		
+		panel.add(label);
+		panel.add(textfield);
+		panel.add(button);
+		
+		frame.add(panel);
+		frame.setVisible(true);	
+	}	
+}
